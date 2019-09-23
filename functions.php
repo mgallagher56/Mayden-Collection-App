@@ -12,7 +12,12 @@ function connectDb() {
 }
 
 
-
+/**
+ *Uses database connection to select fields from db and return the data as an associative array
+ * @param $db array Database connection
+ *
+ * @return mixed returns the results from database extraction as an associative array
+ */
 function getdataFromDb($db)
 {
     $query = $db->prepare("SELECT `name`, `brand`, `primary colour`, `release year` FROM `Shoes`");

@@ -6,5 +6,5 @@ $db = connectDb();
 
 $collectionArr = getdataFromDb($db);
 
-var_dump($collectionArr);
+
 
