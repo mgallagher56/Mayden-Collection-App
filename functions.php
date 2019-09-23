@@ -30,8 +30,8 @@ function getdataFromDb($db)
 {
     $query = $db->prepare("SELECT `name`, `brand`, `primary colour`, `release year` FROM `Shoes`");
     $query->execute();
-    $collectionArr = $query->fetchAll(-1);
-    return $collectionArr;
+    $collectionArr2 = $query->fetchAll();
+    return $collectionArr2;
 }
 
 function outputFieldAsHeader($collectionArr)
@@ -42,14 +42,7 @@ function outputFieldAsHeader($collectionArr)
     };
     echo '</ul>';
 }
-function outputFieldAsHeader($collectionArr)
-{
-    echo '<ul>';
-    foreach ($collectionArr as $items => $value) {
-        echo('<li class="heading">' . $items . '</li>');
-    };
-    echo '</ul>';
-}
+
 
 
 
