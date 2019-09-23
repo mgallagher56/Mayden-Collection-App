@@ -8,7 +8,7 @@
 # Host: 127.0.0.1 (MySQL 5.7.27)
 # Database: marcCollection
 # Generation Time: 2019-09-23 13:13:44 +0000
-# ************************************************************
+
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
