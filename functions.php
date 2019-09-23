@@ -18,10 +18,39 @@ function connectDb() {
  *
  * @return mixed returns the results from database extraction as an associative array
  */
+function getHeadingsFromDb($db)
+{
+    $query = $db->prepare("SELECT `name`, `brand`, `primary colour`, `release year` FROM `Shoes`");
+    $query->execute();
+    $collectionArr = $query->fetch();
+    return $collectionArr;
+}
+
 function getdataFromDb($db)
 {
     $query = $db->prepare("SELECT `name`, `brand`, `primary colour`, `release year` FROM `Shoes`");
     $query->execute();
-    $collectionArr = $query->fetchall();
+    $collectionArr = $query->fetchAll(-1);
     return $collectionArr;
 }
+
+function outputFieldAsHeader($collectionArr)
+{
+    echo '<ul>';
+    foreach ($collectionArr as $items => $value) {
+        echo('<li class="heading">' . $items . '</li>');
+    };
+    echo '</ul>';
+}
+function outputFieldAsHeader($collectionArr)
+{
+    echo '<ul>';
+    foreach ($collectionArr as $items => $value) {
+        echo('<li class="heading">' . $items . '</li>');
+    };
+    echo '</ul>';
+}
+
+
+
+
