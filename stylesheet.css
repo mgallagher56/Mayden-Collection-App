@@ -7,11 +7,3 @@ ul {
     margin: 0px;
 }
 
-.heading {
-    font-size: 30px;
-    float: left;
-    list-style-type: none;
-    margin-left: 20px;
-    text-transform: capitalize;
-    padding: 10px;
-}

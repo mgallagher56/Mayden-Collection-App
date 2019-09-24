@@ -13,35 +13,61 @@ function connectDb() {
 
 
 /**
- *Uses database connection to select fields from db and return the data as an associative array
+ *Uses database connection to select names from db and return the data as an associative array
  * @param $db array Database connection
  *
  * @return mixed returns the results from database extraction as an associative array
  */
-function getHeadingsFromDb($db)
+function getNamesFromDb($db)
 {
-    $query = $db->prepare("SELECT `name`, `brand`, `primary colour`, `release year` FROM `Shoes`");
+    $query = $db->prepare("SELECT `name` FROM `Shoes`");
     $query->execute();
-    $collectionArr = $query->fetch();
-    return $collectionArr;
+    $nameArr = $query->fetch();
+    return $nameArr;
 }
 
-function getdataFromDb($db)
+/**
+ *Uses database connection to select brands from db and return the data as an associative array
+ * @param $db array Database connection
+ *
+ * @return mixed returns the results from database extraction as an associative array
+ */
+function getBrandsFromDb($db)
 {
-    $query = $db->prepare("SELECT `name`, `brand`, `primary colour`, `release year` FROM `Shoes`");
+$query = $db->prepare("SELECT `brand` FROM `Shoes`");
     $query->execute();
-    $collectionArr2 = $query->fetchAll();
-    return $collectionArr2;
+    $brandArr = $query->fetch();
+    return $brandArr;
 }
 
-function outputFieldAsHeader($collectionArr)
+/**
+ *Uses database connection to select the primary colour from db and return the data as an associative array
+ * @param $db array Database connection
+ *
+ * @return mixed returns the results from database extraction as an associative array
+ */
+function getColourFromDb($db)
 {
-    echo '<ul>';
-    foreach ($collectionArr as $items => $value) {
-        echo('<li class="heading">' . $items . '</li>');
-    };
-    echo '</ul>';
+    $query = $db->prepare("SELECT `primary colour` FROM `Shoes`");
+    $query->execute();
+    $colourArr = $query->fetchAll();
+    return $colourArr;
 }
+
+/**
+ *Uses database connection to select the release year from db and return the data as an associative array
+ * @param $db array Database connection
+ *
+ * @return mixed returns the results from database extraction as an associative array
+ */
+function getYearFromDb($db)
+{
+    $query = $db->prepare("SELECT `release year` FROM `Shoes`");
+    $query->execute();
+    $yearArr = $query->fetchAll();
+    return $yearArr;
+}
+
 
 
 

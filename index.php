@@ -4,9 +4,10 @@ require_once 'functions.php';
 
 $db = connectDb();
 
-$collectionArr = getHeadingsFromDb($db);
-$collectionArr2 = getdataFromDb($db)
-
+$name = getNamesFromDb($db);
+$brand = getBrandsFromDb($db);
+$colour = getColourFromDb($db);
+$year = getYearFromDb($db);
 ?>
 
 <html>
@@ -16,13 +17,17 @@ $collectionArr2 = getdataFromDb($db)
 </head>
 <body>
 <h1>Shoe Collection</h1>
-<div>
-    <?php
-    outputFieldAsHeader($collectionArr);
-    ?>
+<div class="name col-4">
+
 </div>
 
-<div>
+<div class="brand col-4">
+</div>
+
+<div class="colour col-4">
+</div>
+
+<div class="year col-4">
 </div>
 
 </body>
