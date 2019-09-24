@@ -12,6 +12,7 @@ $year = getYearFromDb($db);
 
 <html>
 <head>
+    <title>My Shoe Collection</title>
     <link rel="stylesheet" type="text/css" href="Normalize.css">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
