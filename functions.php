@@ -5,7 +5,7 @@
  *
  * @return PDO db connection
  */
-function connectDb() {
+function connectDb(): PDO {
     $db = new PDO("mysql:host=db; dbname=marcCollection","root","password");
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
     return $db;
@@ -13,61 +13,34 @@ function connectDb() {
 
 
 /**
- *Uses database connection to select names from db and return the data as an associative array
+ *Uses database connection to select fields from db and return the data as an associative array
  * @param $db array Database connection
  *
  * @return mixed returns the results from database extraction as an associative array
  */
-function getNamesFromDb($db)
+function getHeadingsFromDb(PDO $db): array
 {
-    $query = $db->prepare("SELECT `name` FROM `Shoes`");
+    $query = $db->prepare("SELECT `name`, `brand`, `primary colour`, `release year` FROM `Shoes`");
     $query->execute();
-    $nameArr = $query->fetch();
-    return $nameArr;
+    $collectionArr = $query->fetch();
+    return $collectionArr;
 }
+
 
 /**
- *Uses database connection to select brands from db and return the data as an associative array
- * @param $db array Database connection
+ * Uses data collection from db to output array key as a list item
+ * @param $collectionArr array returned from db
  *
- * @return mixed returns the results from database extraction as an associative array
+ * @return string html list of db items
  */
-function getBrandsFromDb($db)
+function outputFieldAsHeader(array $collectionArr): string
 {
-$query = $db->prepare("SELECT `brand` FROM `Shoes`");
-    $query->execute();
-    $brandArr = $query->fetch();
-    return $brandArr;
+    echo '<ul>';
+    foreach ($collectionArr as $items => $value) {
+        echo('<li class="heading">' . $items . '</li>');
+    };
+    echo '</ul>';
 }
-
-/**
- *Uses database connection to select the primary colour from db and return the data as an associative array
- * @param $db array Database connection
- *
- * @return mixed returns the results from database extraction as an associative array
- */
-function getColourFromDb($db)
-{
-    $query = $db->prepare("SELECT `primary colour` FROM `Shoes`");
-    $query->execute();
-    $colourArr = $query->fetchAll();
-    return $colourArr;
-}
-
-/**
- *Uses database connection to select the release year from db and return the data as an associative array
- * @param $db array Database connection
- *
- * @return mixed returns the results from database extraction as an associative array
- */
-function getYearFromDb($db)
-{
-    $query = $db->prepare("SELECT `release year` FROM `Shoes`");
-    $query->execute();
-    $yearArr = $query->fetchAll();
-    return $yearArr;
-}
-
 
 
 
