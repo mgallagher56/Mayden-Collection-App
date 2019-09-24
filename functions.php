@@ -13,8 +13,8 @@ function connectDb(): PDO {
 
 
 /**
- *Uses database connection to select fields from db and return the data as an associative array
- * @param $db PDO Database connection
+ *Uses database connection to select field names from db and return the data as an associative array
+ * @param PDO $db PDO Database connection
  *
  * @return mixed returns the results from database extraction as an associative array
  */
@@ -26,6 +26,12 @@ function getHeadingsFromDb(PDO $db): array
     return $collectionArr;
 }
 
+
+/**
+ * Uses database connection to select all data from db and return the data as an multidimensional array
+ * @param PDO $db Database connection
+ * @return array
+ */
 function getDataFromDb(PDO $db): array
 {
     $query = $db->prepare("SELECT `name`, `brand`, `primary colour`, `release year` FROM `Shoes`");
@@ -39,27 +45,45 @@ function getDataFromDb(PDO $db): array
  * Uses data collection from db to output array key as a list item
  * @param $collectionArr array returned from db
  *
- * @return string html list of db items
+ * @return string if items in array <= 5, returns html list of db fields
  */
-function outputFieldAsHeader(array $collectionArr)
-{
-    echo '<ul class="header">';
+function outputFieldAsHeader(array $collectionArr) :string
+{   if (count($collectionArr) <= 5) {
+    $result = '<ul class="header">';
     foreach ($collectionArr as $items => $value) {
-        echo'<li class="heading">' . $items . '</li>';
+        $result .= '<li class="heading">' . $items . '</li>';
     };
-    echo '</ul>';
+    $result .= '</ul>';
+
+    return $result;}
+
+    else {
+    return 'invalid input';
+}
 }
 
-function outputDataAsRows(array $collectionArr)
-{
 
+
+/**
+ * A nested foreach loop to output the values of a multidimensional array as html list items
+ * @param array $collectionArr
+ *
+ * @return string multiple if items in array <= 5, returns html list of db items
+ */
+function outputDataAsRows(array $collectionArr) :string
+{   if (count($collectionArr) <= 5) {
+    $result = '';
     foreach ($collectionArr as $name => $value) {
-        echo '<ul class="dataList">';
-        foreach ( $value as $item ){
-            echo '<li class="data">' . $item . '</li>';
+        $result .= '<ul class="dataList">';
+        foreach ($value as $item) {
+            $result .= '<li class="data">' . $item . '</li>';
         }
-        echo '<br>' . '</ul>';
+        $result .= '<br>' . '</ul>';
     };
+    return $result;}
+    else {
+        return 'invalid input';
+    }
 
 }
 

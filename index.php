@@ -18,13 +18,13 @@ $collectionData = getDataFromDb($db);
 <h1>Shoe Collection</h1>
 <div>
     <?php
-    outputFieldAsHeader($collectionArr);
+    echo outputFieldAsHeader($collectionArr);
     ?>
 </div>
 
 <div>
     <?php
-    outputDataAsRows($collectionData);
+    echo outputDataAsRows($collectionData);
     ?>
 </div>
 
