@@ -14,19 +14,69 @@ class StackTest extends TestCase
 
         $case = outputFieldAsHeader($input);
 
+        var_dump($case);
+
         $this->assertEquals($case, $expected);
 
     }
 
-//    public function testFailureoutputFieldAsHeader()
-//    {
-//         $expected = ;
-//
-//         $input = ;
-//
-//        $case = outputFieldAsHeader($input);
-//
-//        $this->assertEquals($case, $expected);
-//    }
+    public function testFailureoutputFieldAsHeader()
+    {
+         $expected = 'invalid input';
+
+         $input = ['testA' => 'thingA', 'testB' => 'thingB', 'testC' => 'thingC', 'testD' => 'thingD', 'testE' => 'thingE','testF' => 'thingF', ];
+
+        $case = outputFieldAsHeader($input);
+
+        $this->assertEquals($case, $expected);
+    }
+
+    public function testMalformedoutputFieldAsHeader()
+    {
+
+        $input = "testing";
+
+        $this-> expectException(TypeError::class);
+
+        outputFieldAsHeader($input);
+    }
+
+    public function testSuccessoutputDataAsRows()
+    {
+        $expected ='<ul class="dataList"><li class="data">thingA</li><li class="data">thingB</li><li class="data">thingC</li><li class="data">thingD</li><li class="data">thingE</li><li class="data">thingF</li><br></ul>';
+
+        $input = [['testA' => 'thingA', 'testB' => 'thingB', 'testC' => 'thingC', 'testD' => 'thingD', 'testE' => 'thingE','testF' => 'thingF', ]];
+
+        $case = outputDataAsRows($input);
+
+        var_dump($case);
+
+        $this->assertEquals($case, $expected);
+
+    }
+
+    public function testFailureoutputDataAsRows()
+    {
+        $expected = 'invalid input';
+
+        $input = ['testA' => 'thingA', 'testB' => 'thingB', 'testC' => 'thingC', 'testD' => 'thingD', 'testE' => 'thingE','testF' => 'thingF', ];
+
+        $case = outputDataAsRows($input);
+
+        $this->assertEquals($case, $expected);
+    }
+
+    public function testMalformedoutputDataAsRows()
+    {
+
+        $input = "testing";
+
+        $this-> expectException(TypeError::class);
+
+        outputDataAsRows($input);
+    }
+
+
 }
+
 
