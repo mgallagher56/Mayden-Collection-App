@@ -14,7 +14,6 @@ class StackTest extends TestCase
 
         $case = outputFieldAsHeader($input);
 
-        var_dump($case);
 
         $this->assertEquals($case, $expected);
 
@@ -49,7 +48,6 @@ class StackTest extends TestCase
 
         $case = outputDataAsRows($input);
 
-        var_dump($case);
 
         $this->assertEquals($case, $expected);
 

@@ -21,6 +21,7 @@ h1 {
 }
 
 .dataList {
+    width: auto;
     height: 90px;
     border-bottom: black solid 2px;
     padding-left: 15px;
@@ -33,3 +34,39 @@ h1 {
     font-size: 25px;
     text-align: center;
 }
+
+@media screen and (max-width:980px) {
+
+    .heading {
+        font-size: 25px;
+        width: 25%;
+    }
+
+    .data {
+    font-size: 20px;
+        width: 25%;
+    }
+
+    .dataList {
+        height: 100px;
+
+    }
+
+}
+
+@media screen and (max-width:480px) {
+    .heading {
+        font-size: 18px;
+    }
+
+    .data {
+        font-size: 16px;
+    }
+
+    .dataList {
+        height: 150px;
+
+    }
+}
+
+
