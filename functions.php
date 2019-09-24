@@ -33,7 +33,7 @@ function getHeadingsFromDb(PDO $db): array
  *
  * @return string html list of db items
  */
-function outputFieldAsHeader(array $collectionArr): string
+function outputFieldAsHeader(array $collectionArr)
 {
     echo '<ul>';
     foreach ($collectionArr as $items => $value) {
