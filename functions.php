@@ -14,7 +14,7 @@ function connectDb(): PDO {
 
 /**
  *Uses database connection to select fields from db and return the data as an associative array
- * @param $db array Database connection
+ * @param $db PDO Database connection
  *
  * @return mixed returns the results from database extraction as an associative array
  */
@@ -26,6 +26,14 @@ function getHeadingsFromDb(PDO $db): array
     return $collectionArr;
 }
 
+function getDataFromDb(PDO $db): array
+{
+    $query = $db->prepare("SELECT `name`, `brand`, `primary colour`, `release year` FROM `Shoes`");
+    $query->execute();
+    $collectionData = $query->fetchAll();
+    return $collectionData;
+}
+
 
 /**
  * Uses data collection from db to output array key as a list item
@@ -35,12 +43,27 @@ function getHeadingsFromDb(PDO $db): array
  */
 function outputFieldAsHeader(array $collectionArr)
 {
-    echo '<ul>';
+    echo '<ul class="header">';
     foreach ($collectionArr as $items => $value) {
-        echo('<li class="heading">' . $items . '</li>');
+        echo'<li class="heading">' . $items . '</li>';
     };
     echo '</ul>';
 }
+
+function outputDataAsRows(array $collectionArr)
+{
+
+    foreach ($collectionArr as $name => $value) {
+        echo '<ul class="dataList">';
+        foreach ( $value as $item ){
+            echo '<li class="data">' . $item . '</li>';
+        }
+        echo '<br>' . '</ul>';
+    };
+
+}
+
+
 
 
 

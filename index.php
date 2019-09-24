@@ -5,6 +5,7 @@ require_once 'functions.php';
 $db = connectDb();
 
 $collectionArr = getHeadingsFromDb($db);
+$collectionData = getDataFromDb($db);
 
 ?>
 
@@ -22,6 +23,9 @@ $collectionArr = getHeadingsFromDb($db);
 </div>
 
 <div>
+    <?php
+    outputDataAsRows($collectionData);
+    ?>
 </div>
 
 </body>
