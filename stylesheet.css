@@ -1,0 +1,17 @@
+ul {
+    width: auto;
+    height: 50px;
+    border-bottom: black solid 2px;
+    border-top: black solid 2px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.heading {
+    font-size: 30px;
+    float: left;
+    list-style-type: none;
+    margin-left: 20px;
+    text-transform: capitalize;
+    padding: 10px;
+}

@@ -5,7 +5,7 @@
  *
  * @return PDO db connection
  */
-function connectDb() {
+function connectDb(): PDO {
     $db = new PDO("mysql:host=db; dbname=marcCollection","root","password");
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
     return $db;
@@ -18,10 +18,31 @@ function connectDb() {
  *
  * @return mixed returns the results from database extraction as an associative array
  */
-function getdataFromDb($db)
+function getHeadingsFromDb(PDO $db): array
 {
     $query = $db->prepare("SELECT `name`, `brand`, `primary colour`, `release year` FROM `Shoes`");
     $query->execute();
-    $collectionArr = $query->fetchall();
+    $collectionArr = $query->fetch();
     return $collectionArr;
 }
+
+
+/**
+ * Uses data collection from db to output array key as a list item
+ * @param $collectionArr array returned from db
+ *
+ * @return string html list of db items
+ */
+function outputFieldAsHeader(array $collectionArr)
+{
+    echo '<ul>';
+    foreach ($collectionArr as $items => $value) {
+        echo('<li class="heading">' . $items . '</li>');
+    };
+    echo '</ul>';
+}
+
+
+
+
+
