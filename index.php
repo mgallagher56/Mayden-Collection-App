@@ -7,6 +7,7 @@ $db = connectDb();
 $collectionArr = getHeadingsFromDb($db);
 $collectionData = getDataFromDb($db);
 
+
 ?>
 
 <html>

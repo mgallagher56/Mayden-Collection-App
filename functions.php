@@ -70,10 +70,10 @@ function outputFieldAsHeader(array $collectionArr) :string
  *
  * @return string multiple if items in array <= 5, returns html list of db items
  */
-function outputDataAsRows(array $collectionArr) :string
-{   if (count($collectionArr) <= 5) {
+function outputDataAsRows(array $collectionData) :string
+{   if (count($collectionData[0]) <= 5) {
     $result = '';
-    foreach ($collectionArr as $name => $value) {
+    foreach ($collectionData as $name => $value) {
         $result .= '<ul class="dataList">';
         foreach ($value as $item) {
             $result .= '<li class="data">' . $item . '</li>';
@@ -86,6 +86,7 @@ function outputDataAsRows(array $collectionArr) :string
     }
 
 }
+
 
 
 

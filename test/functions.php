@@ -42,12 +42,11 @@ class StackTest extends TestCase
 
     public function testSuccessoutputDataAsRows()
     {
-        $expected ='<ul class="dataList"><li class="data">thingA</li><li class="data">thingB</li><li class="data">thingC</li><li class="data">thingD</li><li class="data">thingE</li><li class="data">thingF</li><br></ul>';
+        $expected ='<ul class="dataList"><li class="data">thingA</li><li class="data">thingB</li><li class="data">thingC</li><br></ul>';
 
-        $input = [['testA' => 'thingA', 'testB' => 'thingB', 'testC' => 'thingC', 'testD' => 'thingD', 'testE' => 'thingE','testF' => 'thingF', ]];
+        $input = [['testA' => 'thingA', 'testB' => 'thingB', 'testC' => 'thingC']];
 
         $case = outputDataAsRows($input);
-
 
         $this->assertEquals($case, $expected);
 
@@ -57,7 +56,7 @@ class StackTest extends TestCase
     {
         $expected = 'invalid input';
 
-        $input = ['testA' => 'thingA', 'testB' => 'thingB', 'testC' => 'thingC', 'testD' => 'thingD', 'testE' => 'thingE','testF' => 'thingF', ];
+        $input = [['testA' => 'thingA', 'testB' => 'thingB', 'testC' => 'thingC', 'testD' => 'thingD', 'testE' => 'thingE','testF' => 'thingF', ]];
 
         $case = outputDataAsRows($input);
 
