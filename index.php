@@ -27,5 +27,14 @@ $results = outputDataAsRows($collectionData);
     <?php echo $results; ?>
 </div>
 
+<form action="input.php" method="post">
+    <h3>New Entry</h3>
+    Enter Shoe Name: <input class="textBox" type="text" name="name" placeholder="Name">
+    Enter Brand: <input class="textBox" type="text" name="brand" placeholder="Brand">
+    Enter Primary Colour: <input class="textBox" type="text" name="colour" placeholder="Colour">
+    Enter Year of Release: <input class="textBox" type="text" name="year" placeholder="Year">
+    <input class="submit" type="submit">
+</form>
+
 </body>
 </html>
