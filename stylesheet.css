@@ -1,5 +1,26 @@
+* {
+    box-sizing: border-box;
+}
+
 h1 {
     padding-left: 20px;
+}
+
+h3 {
+    margin: 0;
+}
+
+form {
+    margin: 10px;
+}
+
+input {
+    margin: 10px;
+}
+
+.textBox {
+    display: block;
+    margin: 10px;
 }
 
 .header {
