@@ -11,83 +11,43 @@ function connectDb(): PDO {
     return $db;
 }
 
-
-/**
- *Uses database connection to select field names from db and return the data as an associative array
- * @param PDO $db PDO Database connection
- *
- * @return mixed returns the results from database extraction as an associative array
- */
-function getHeadingsFromDb(PDO $db): array
-{
-    $query = $db->prepare("SELECT `name`, `brand`, `primary colour`, `release year` FROM `Shoes`");
-    $query->execute();
-    $collectionArr = $query->fetch();
-    return $collectionArr;
-}
-
-
 /**
  * Uses database connection to select all data from db and return the data as an multidimensional array
+ *
  * @param PDO $db Database connection
- * @return array
+ *
+ * @return array Multidimensional array returned with data from selected fields in db
  */
-function getDataFromDb(PDO $db): array
-{
-    $query = $db->prepare("SELECT `name`, `brand`, `primary colour`, `release year` FROM `Shoes`");
+function getDataFromDb(PDO $db): array {
+    $query = $db->prepare("SELECT `name`, `brand`, `primary_colour`, `release_year` FROM `Shoes`");
     $query->execute();
     $collectionData = $query->fetchAll();
     return $collectionData;
 }
 
-
 /**
- * Uses data collection from db to output array key as a list item
- * @param $collectionArr array returned from db
+ *Foreach function to access data from multidimensional array and output as a html list
  *
- * @return string if items in array <= 5, returns html list of db fields
- */
-function outputFieldAsHeader(array $collectionArr) :string
-{   if (count($collectionArr) <= 5) {
-    $result = '<ul class="header">';
-    foreach ($collectionArr as $items => $value) {
-        $result .= '<li class="heading">' . $items . '</li>';
-    };
-    $result .= '</ul>';
-
-    return $result;}
-
-    else {
-    return 'invalid input';
-}
-}
-
-
-
-/**
- * A nested foreach loop to output the values of a multidimensional array as html list items
- * @param array $collectionArr
+ * @param array $collectionData array data returned from db
  *
- * @return string multiple if items in array <= 5, returns html list of db items
+ * @return string Outputs each row from db in a list with each data point as a list item
  */
-function outputDataAsRows(array $collectionData) :string
-{   if (count($collectionData[0]) <= 5) {
-    $result = '';
-    foreach ($collectionData as $name => $value) {
-        $result .= '<ul class="dataList">';
-        foreach ($value as $item) {
-            $result .= '<li class="data">' . $item . '</li>';
+function outputDataAsRows(array $collectionData) :string {
+    if (count($collectionData[0]) == 4) {
+        $result = '';
+        foreach ($collectionData as $name => $value) {
+            $result .= '<ul class="dataList">';
+            $result .= '<li class="data">' . $value['name'] . '</li>';
+            $result .= '<li class="data">' . $value['brand'] . '</li>';
+            $result .= '<li class="data">' . $value['primary_colour'] . '</li>';
+            $result .= '<li class="data">' . $value['release_year'] . '</li>';
+            $result .= '</ul>';
         }
-        $result .= '<br>' . '</ul>';
-    };
-    return $result;}
-    else {
+        return $result;
+    }else {
         return 'invalid input';
     }
-
 }
-
-
 
 
 
