@@ -6,45 +6,12 @@ use PHPUnit\Framework\TestCase;
 
 class StackTest extends TestCase
 {
-    public function testSuccessoutputFieldAsHeader()
-    {
-        $expected ='<ul class="header"><li class="heading">testA</li><li class="heading">testB</li><li class="heading">testC</li></ul>';
-
-        $input = ['testA' => 'thingA', 'testB' => 'thingB', 'testC' => 'thingC'];
-
-        $case = outputFieldAsHeader($input);
-
-
-        $this->assertEquals($case, $expected);
-
-    }
-
-    public function testFailureoutputFieldAsHeader()
-    {
-         $expected = 'invalid input';
-
-         $input = ['testA' => 'thingA', 'testB' => 'thingB', 'testC' => 'thingC', 'testD' => 'thingD', 'testE' => 'thingE','testF' => 'thingF', ];
-
-        $case = outputFieldAsHeader($input);
-
-        $this->assertEquals($case, $expected);
-    }
-
-    public function testMalformedoutputFieldAsHeader()
-    {
-
-        $input = "testing";
-
-        $this-> expectException(TypeError::class);
-
-        outputFieldAsHeader($input);
-    }
 
     public function testSuccessoutputDataAsRows()
     {
-        $expected ='<ul class="dataList"><li class="data">thingA</li><li class="data">thingB</li><li class="data">thingC</li><br></ul>';
+        $expected ='<ul class="dataList"><li class="data"></li><li class="data"></li><li class="data"></li><li class="data"></li></ul>';
 
-        $input = [['testA' => 'thingA', 'testB' => 'thingB', 'testC' => 'thingC']];
+        $input = [['testA' => 'thingA', 'testB' => 'thingB', 'testC' => 'thingC', 'testD' => 'thingD']];
 
         $case = outputDataAsRows($input);
 
@@ -56,7 +23,7 @@ class StackTest extends TestCase
     {
         $expected = 'invalid input';
 
-        $input = [['testA' => 'thingA', 'testB' => 'thingB', 'testC' => 'thingC', 'testD' => 'thingD', 'testE' => 'thingE','testF' => 'thingF', ]];
+        $input = [['testA' => 'thingA', 'testB' => 'thingB', 'testC' => 'thingC', 'testD' => 'thingD', 'testE' => 'thingE']];
 
         $case = outputDataAsRows($input);
 
@@ -72,8 +39,7 @@ class StackTest extends TestCase
 
         outputDataAsRows($input);
     }
-
-
 }
+
 
 
