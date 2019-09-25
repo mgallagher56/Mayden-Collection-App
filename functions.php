@@ -48,9 +48,3 @@ function outputDataAsRows(array $collectionData) :string {
         return 'invalid input';
     }
 }
-
-
-
-
-
-
