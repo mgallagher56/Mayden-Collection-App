@@ -29,10 +29,10 @@ $results = outputDataAsRows($collectionData);
 
 <form action="input.php" method="post">
     <h3>New Entry</h3>
-    Enter Shoe Name: <input class="textBox" type="text" name="name" placeholder="Name">
-    Enter Brand: <input class="textBox" type="text" name="brand" placeholder="Brand">
-    Enter Primary Colour: <input class="textBox" type="text" name="colour" placeholder="Colour">
-    Enter Year of Release: <input class="textBox" type="text" name="year" placeholder="Year">
+    Enter Shoe Name: <input class="textBox" type="text" name="name" placeholder="e.g. Yeezy Boost" required>
+    Enter Brand: <input class="textBox" type="text" name="brand" placeholder="e.g. adidas" required>
+    Enter Primary Colour: <input class="textBox" type="text" name="colour" placeholder="e.g. black" required>
+    Enter Year of Release: <input class="textBox" type="text" name="year" placeholder="e.g. 1999" required>
     <input class="submit" type="submit">
 </form>
 

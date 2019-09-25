@@ -2,6 +2,11 @@
     box-sizing: border-box;
 }
 
+body {
+    background-image: url("img/full-bloom.png");
+    background-attachment: fixed;
+}
+
 h1 {
     padding-left: 20px;
 }
