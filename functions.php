@@ -1,5 +1,7 @@
 <?php
 
+use http\Header;
+
 /**
  * Connects to mySQL database
  *
@@ -50,7 +52,23 @@ function outputDataAsRows(array $collectionData) :string {
     }
 }
 
-function insertIntoDb($db,$name,$brand,$colour,$year,$image){
+/**
+ * Uses db connection to validate and sanitise params and insert into db fields
+ *
+ * @param $db database connection connection
+ *
+ * @param $name string db entry into field 'name'
+ *
+ * @param $brand string db entry into field 'brand'
+ *
+ * @param $colour string db entry into field 'colour'
+ *
+ * @param $year string db entry into field 'year'
+ *
+ * @param $image string db url entry into field 'image'
+ *
+ */
+function insertIntoDb($db, $name, $brand, $colour, $year, $image){
     $query = $db->prepare("INSERT INTO Shoes (name, brand, primary_colour, release_year, image) VALUES (:names, :brand, :colour, :year, :image);");
     $query->bindParam(':names', $name, PDO::PARAM_STR, 255);
     $query->bindParam(':brand', $brand, PDO::PARAM_STR, 255);
@@ -60,14 +78,30 @@ function insertIntoDb($db,$name,$brand,$colour,$year,$image){
     $query->execute();
 }
 
-function checkValidity($name,$brand,$colour,$year,$image){
+
+/**
+ * Checks the validity of form inputs. Allows input if conditions met, else sends to an error page without inputting data
+ *
+ * @param $name string input data from form input name
+ *
+ * @param $brand string input data from form input brand
+ *
+ * @param $colour string input data from form input colour
+ *
+ * @param $year string input data from form input year
+ *
+ * @param $image string input data from form input image
+ *
+ * @return string returns user to index.php with data entered or sends to error.php if data not entered correctly
+ */
+function checkValidity($name, $brand, $colour, $year, $image){
     if ((strlen($name)) <= 255 &&
         (strlen($brand)) <= 255 &&
         (strlen($colour)) <= 255 &&
         ($year > 1900) && ($year < 2300) &&
         (strlen($image)) <= 255){
-        return     header("Location: index.php");
+        return true;
     } else{
-        return     header("Location: error.php");
+        return false;
     }
 }

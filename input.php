@@ -1,5 +1,4 @@
 <?php
-
 if (!isset($_GET['auth'])) {
     header("Location: index.php");
 }
@@ -14,6 +13,10 @@ $image = $_POST['image'];
 
 insertIntoDb($db,$name,$brand,$colour,$year,$image);
 
-checkValidity($name,$brand,$colour,$year,$image);
+$check = checkValidity($name,$brand,$colour,$year,$image);
 
-
+if ($check == true){
+    return header("Location: index.php");
+        }else {
+    return header("Location: error.php");
+}

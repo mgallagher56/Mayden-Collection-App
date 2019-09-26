@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.27)
 # Database: marcCollection
-# Generation Time: 2019-09-26 08:59:27 +0000
+# Generation Time: 2019-09-26 10:19:42 +0000
 # ************************************************************
 
 
@@ -31,7 +31,7 @@ CREATE TABLE `Shoes` (
   `brand` varchar(255) NOT NULL DEFAULT 'N/A',
   `primary_colour` varchar(255) NOT NULL DEFAULT 'N/A',
   `release_year` year(4) NOT NULL DEFAULT '0000',
-  `image` varchar(255) NOT NULL DEFAULT 'N/A',
+  `image` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
