@@ -49,3 +49,25 @@ function outputDataAsRows(array $collectionData) :string {
         return 'invalid input';
     }
 }
+
+function insertIntoDb($db,$name,$brand,$colour,$year,$image){
+    $query = $db->prepare("INSERT INTO Shoes (name, brand, primary_colour, release_year, image) VALUES (:names, :brand, :colour, :year, :image);");
+    $query->bindParam(':names', $name, PDO::PARAM_STR, 255);
+    $query->bindParam(':brand', $brand, PDO::PARAM_STR, 255);
+    $query->bindParam(':colour', $colour, PDO::PARAM_STR, 255);
+    $query->bindParam(':year', $year, PDO::PARAM_INT,4);
+    $query->bindParam(':image', $image, PDO::PARAM_STR, 255);
+    $query->execute();
+}
+
+function checkValidity($name,$brand,$colour,$year,$image){
+    if ((strlen($name)) <= 255 &&
+        (strlen($brand)) <= 255 &&
+        (strlen($colour)) <= 255 &&
+        ($year > 1900) && ($year < 2300) &&
+        (strlen($image)) <= 255){
+        return     header("Location: index.php");
+    } else{
+        return     header("Location: error.php");
+    }
+}
