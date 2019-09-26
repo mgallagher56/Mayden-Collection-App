@@ -19,7 +19,7 @@ function connectDb(): PDO {
  * @return array Multidimensional array returned with data from selected fields in db
  */
 function getDataFromDb(PDO $db): array {
-    $query = $db->prepare("SELECT `name`, `brand`, `primary_colour`, `release_year` FROM `Shoes`");
+    $query = $db->prepare("SELECT `name`, `brand`, `primary_colour`, `release_year`, `image` FROM `Shoes`");
     $query->execute();
     $collectionData = $query->fetchAll();
     return $collectionData;
@@ -33,7 +33,7 @@ function getDataFromDb(PDO $db): array {
  * @return string Outputs each row from db in a list with each data point as a list item
  */
 function outputDataAsRows(array $collectionData) :string {
-    if (count($collectionData[0]) == 4) {
+    if (count($collectionData[0]) == 5) {
         $result = '';
         foreach ($collectionData as $name => $value) {
             $result .= '<ul class="dataList">';
@@ -41,6 +41,7 @@ function outputDataAsRows(array $collectionData) :string {
             $result .= '<li class="data">' . $value['brand'] . '</li>';
             $result .= '<li class="data">' . $value['primary_colour'] . '</li>';
             $result .= '<li class="data">' . $value['release_year'] . '</li>';
+            $result .= '<li class="data">' . '<img src="' . $value['image'] . '">' . '</li>';
             $result .= '</ul>';
         }
         return $result;

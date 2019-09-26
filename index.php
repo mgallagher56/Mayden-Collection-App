@@ -20,6 +20,7 @@ $results = outputDataAsRows($collectionData);
         <li class="heading">Brand</li>
         <li class="heading">Primary Colour</li>
         <li class="heading">Release Year</li>
+        <li class="heading">Image</li>
     </ul>
 </div>
 
@@ -33,8 +34,10 @@ $results = outputDataAsRows($collectionData);
     Enter Brand: <input class="textBox" type="text" name="brand" placeholder="e.g. adidas" required>
     Enter Primary Colour: <input class="textBox" type="text" name="colour" placeholder="e.g. black" required>
     Enter Year of Release: <input class="textBox" type="text" name="year" placeholder="e.g. 1999" required>
+    Enter Image Url: <input class="textBox" type="text" name="image" placeholder="e.g. www.flightclub.com/shoe.jpg">
     <input class="submit" type="submit">
 </form>
 
 </body>
 </html>
+
