@@ -37,7 +37,7 @@ function outputDataAsRows(array $collectionData) :string {
     if (count($collectionData[0]) == 5) {
         $result = '';
         foreach ($collectionData as $name => $value) {
-            $result .= '<ul class="dataList">';
+            $result .= '<ul class="dataList container">';
             $result .= '<li class="data">' . $value['name'] . '</li>';
             $result .= '<li class="data">' . $value['brand'] . '</li>';
             $result .= '<li class="data">' . $value['primary_colour'] . '</li>';

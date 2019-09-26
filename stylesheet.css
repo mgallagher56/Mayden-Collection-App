@@ -6,9 +6,61 @@ body {
     background-image: url("img/full-bloom.png");
 }
 
-container {
+.container {
     width: 90%;
     overflow: auto;
+}
+
+.bgImage {
+    background-image: url("img/sneaker.jpg");
+    width: 90%;
+    height: 488px;
+    margin:15px auto 20px auto;
+    border-radius: 5px;
+    background-position: 270px 0;
+}
+
+form {
+    float: left;
+    background-color: #222222;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    margin: 0;
+}
+
+input {
+    padding: 7px;
+    border-radius: 5px;
+    background-color: #393939;
+    color: black;
+    border: black solid 2px;
+}
+
+input:hover {
+    background-color: #393939;
+    padding: 7px 15px;
+    border: 2px black solid;
+    transition: ease 0.5s;
+    color: #52D08E;
+}
+
+.textBox {
+    display: block;
+    margin: 10px 0 10px 0;
+    background-color: #393939;
+    color: #52D08E;
+}
+
+p {
+    display: block;
+    margin: 0 auto;
+    color: #7F7F7F;
+}
+
+::placeholder {
+    color: #52D08E;
+    opacity: .6;
 }
 
 h1 {
@@ -18,6 +70,7 @@ h1 {
 
 h3 {
     margin: 10px auto;
+    color: #52D08E;
 }
 
 img {
@@ -25,16 +78,14 @@ img {
     width: 110px;
     float: right;
     margin: 10px 50px 0 0;
-
 }
 
 .header {
     height: 60px;
     border: black solid 2px;
-    padding: 0;
+    border-radius: 5px;
     margin: 0 auto;
-    width: 90%;
-    background-color: deepskyblue;
+    background-color: #393939;
 }
 
 .heading {
@@ -44,15 +95,21 @@ img {
     padding: 10px 0px;
     width: 20%;
     text-align: center;
+    color: #52D08E;
+    margin: 0;
+}
+
+.results {
+    margin-bottom: 100px;
 }
 
 .dataList {
     height: 90px;
-    width: 90%;
     border-bottom: black solid 2px;
     border-right: black solid 2px;
-    border-left: black solid 2px;;
-    padding-left: 15px;
+    border-left: black solid 2px;
+    border-radius: 5px;
+    background-color: #222222;
     margin: 0 auto;
 }
 
@@ -62,35 +119,10 @@ img {
     width: 20%;
     font-size: 25px;
     text-align: center;
-}
-
-form {
-    float: left;
-    margin-left: 5%;
-}
-
-input {
-    padding: 7px;
-    border-radius: 5px;
-    background-color: deepskyblue;
-}
-
-input:hover {
-    background-color: transparent;
-    padding: 7px 12px;
-    border: 2px deepskyblue solid;
-    transition: ease 0.5s;
-}
-
-.textBox {
-    display: block;
-    background-color: springgreen;
-    margin: 10px 0 10px 0;
-}
-
-p {
-    display: block;
-    margin: 0 auto;
+    color: #7F7F7F;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 @media screen and (max-width:1080px) {
@@ -112,6 +144,10 @@ p {
         margin-right: 15px;
         height: 70px;
         width: 100px;
+    }
+
+    .bgImage{
+        background-position-x: center;
     }
 }
 
@@ -137,6 +173,10 @@ p {
 @media screen and (max-width:520px) {
     .data {
         font-size: 12px;
+    }
+
+    .bgImage {
+        background-image: none;
     }
 
 }
