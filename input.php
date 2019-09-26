@@ -11,11 +11,10 @@ $colour = $_POST['colour'];
 $year = $_POST['year'];
 $image = $_POST['image'];
 
-insertIntoDb($db,$name,$brand,$colour,$year,$image);
-
 $check = checkValidity($name,$brand,$colour,$year,$image);
 
 if ($check == true){
+    insertIntoDb($db,$name,$brand,$colour,$year,$image);
     return header("Location: index.php");
         }else {
     return header("Location: error.php");

@@ -1,6 +1,5 @@
 <?php
 
-use http\Header;
 
 /**
  * Connects to mySQL database
@@ -55,7 +54,7 @@ function outputDataAsRows(array $collectionData) :string {
 /**
  * Uses db connection to validate and sanitise params and insert into db fields
  *
- * @param $db database connection connection
+ * @param $db connection
  *
  * @param $name string db entry into field 'name'
  *
@@ -68,7 +67,7 @@ function outputDataAsRows(array $collectionData) :string {
  * @param $image string db url entry into field 'image'
  *
  */
-function insertIntoDb($db, $name, $brand, $colour, $year, $image){
+function insertIntoDb(PDO $db, $name, $brand, $colour, $year, $image){
     $query = $db->prepare("INSERT INTO Shoes (name, brand, primary_colour, release_year, image) VALUES (:names, :brand, :colour, :year, :image);");
     $query->bindParam(':names', $name, PDO::PARAM_STR, 255);
     $query->bindParam(':brand', $brand, PDO::PARAM_STR, 255);
@@ -92,7 +91,7 @@ function insertIntoDb($db, $name, $brand, $colour, $year, $image){
  *
  * @param $image string input data from form input image
  *
- * @return string returns user to index.php with data entered or sends to error.php if data not entered correctly
+ * @return bool returns user to index.php with data entered or sends to error.php if data not entered correctly
  */
 function checkValidity($name, $brand, $colour, $year, $image){
     if ((strlen($name)) <= 255 &&
