@@ -2,29 +2,27 @@
     box-sizing: border-box;
 }
 
+body {
+    background-image: url("img/full-bloom.png");
+}
+
 h1 {
     padding-left: 20px;
+    text-align: center;
 }
 
 h3 {
     margin: 0;
 }
 
-form {
-    margin: 10px;
-}
-
-input {
-    margin: 10px;
-}
-
-.textBox {
-    display: block;
-    margin: 10px;
+img {
+    height: 80px;
+    width: 120px;
+    float: right;
+    margin-right: 50px;
 }
 
 .header {
-    width: auto;
     height: 90px;
     border-bottom: black solid 2px;
     border-top: black solid 2px;
@@ -35,14 +33,12 @@ input {
     font-size: 30px;
     float: left;
     list-style-type: none;
-    text-transform: capitalize;
     padding: 10px 0px;
     width: 20%;
     text-align: center;
 }
 
 .dataList {
-    width: auto;
     height: 90px;
     border-bottom: black solid 2px;
     padding-left: 15px;
@@ -56,16 +52,26 @@ input {
     text-align: center;
 }
 
+form {
+    margin: 10px;
+}
+
+input {
+    margin: 10px;
+}
+
+.textBox {
+    display: block;
+}
+
 @media screen and (max-width:980px) {
 
     .heading {
         font-size: 25px;
-        width: 25%;
     }
 
     .data {
     font-size: 20px;
-        width: 25%;
     }
 
     .dataList {
@@ -73,9 +79,15 @@ input {
 
     }
 
+    img {
+        margin-right: 15px;
+        height: 70px;
+        width: 100px;
+    }
+
 }
 
-@media screen and (max-width:480px) {
+@media screen and (max-width:580px) {
     .heading {
         font-size: 18px;
     }
@@ -85,9 +97,11 @@ input {
     }
 
     .dataList {
-        height: 150px;
+        height: 80px;
+    }
 
+    img {
+        height: 50px;
+        width: 80px;
     }
 }
-
-
