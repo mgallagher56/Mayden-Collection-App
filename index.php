@@ -14,8 +14,9 @@ $results = outputDataAsRows($collectionData);
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 <body>
-
-    <h1>Marc's SuperFun Shoe Collection</h1>
+    <header class="container">
+        <h1>Marc's SuperFun Shoe Collection</h1>
+    </header>
 
     <div class="bgImage container">
         <form action="input.php?auth=true" method="post">

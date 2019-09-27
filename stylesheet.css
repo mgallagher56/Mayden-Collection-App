@@ -11,11 +11,17 @@ body {
     overflow: auto;
 }
 
+header {
+    background-color: #393939;
+    height: 70px;
+    margin: 0 auto;
+}
+
 .bgImage {
     background-image: url("img/sneaker.jpg");
     width: 90%;
     height: 488px;
-    margin:15px auto 20px auto;
+    margin:0 auto 20px auto;
     border-radius: 5px;
     background-position: 270px 0;
 }
@@ -81,9 +87,14 @@ p {
 }
 
 h1 {
+    color: white;
     padding-left: 20px;
     text-align: center;
-    margin: 10px auto;
+    margin: 0 auto;
+    float: left;
+    position: relative;
+    top:50%;
+    transform: translateY(-50%);
 }
 
 h3 {
@@ -165,7 +176,7 @@ img {
     }
 
     .bgImage{
-        background-position-x: center;
+        background-position:left;
     }
 }
 
@@ -191,10 +202,6 @@ img {
 @media screen and (max-width:520px) {
     .data {
         font-size: 12px;
-    }
-
-    .bgImage {
-        background-image: none;
     }
 
 }
