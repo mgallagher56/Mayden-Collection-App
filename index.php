@@ -11,6 +11,7 @@ $results = outputDataAsRows($collectionData);
     <title>Marc's SuperFun Shoe Collection</title>
     <link rel="stylesheet" type="text/css" href="Normalize.css">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 <body>
 
