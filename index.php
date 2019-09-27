@@ -21,11 +21,11 @@ $results = outputDataAsRows($collectionData);
     <div class="bgImage container">
         <form action="input.php?auth=true" method="post">
             <h3>New Entry</h3>
-            <p>Enter Shoe Name: <input max="255" class="textBox" type="text" name="name" placeholder="e.g. Yeezy Boost" required></p>
-            <p>Enter Brand: <input max="255" class="textBox" type="text" name="brand" placeholder="e.g. adidas" required></p>
-            <p>Enter Primary Colour: <input max="50" class="textBox" type="text" name="colour" placeholder="e.g. black" required></p>
+            <p>Enter Shoe Name: <input max="30" class="textBox" type="text" name="name" placeholder="e.g. Yeezy Boost" required></p>
+            <p>Enter Brand: <input max="20" class="textBox" type="text" name="brand" placeholder="e.g. adidas" required></p>
+            <p>Enter Primary Colour: <input max="20" class="textBox" type="text" name="colour" placeholder="e.g. black" required></p>
             <p>Enter Year of Release: <input min="4" max="4" class="textBox" type="text" name="year" placeholder="e.g. 1999" required></p>
-            <p>Enter Image Url: <input class="textBox" type="url" name="image" placeholder="e.g. www.flightclub.com/shoe.jpg" required></p>
+            <p>Enter Image url (.jpg/.png): <input class="textBox" type="url" name="image" placeholder="e.g. nike.com/shoe.jpg" required></p>
             <input class="submit" type="submit">
         </form>
     </div>

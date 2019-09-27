@@ -98,7 +98,8 @@ function checkValidity($name, $brand, $colour, $year, $image){
         (strlen($brand)) <= 255 &&
         (strlen($colour)) <= 255 &&
         ($year > 1900) && ($year < 2300) &&
-        (strlen($image)) <= 255){
+        (strlen($image)) <= 255 &&
+        ((strpos($image, '.jpg') == true) OR (strpos($image, '.jpeg') == true) OR (strpos($image, '.png') == true))){
         return true;
     } else{
         return false;
