@@ -1,7 +1,11 @@
 <html lang="en">
-<body>
-<h3>Shoe not added due to invalid input. Please click below to go back to Shoe Collection</h3>
+<head>
+    <link rel="stylesheet" type="text/css" href="Normalize.css">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+<h2>Shoe not added due to invalid input. Please click below to go back to Shoe Collection</h2>
 
-<a href="index.php"> <button type="button">Return to Collection</button></a>
+<a href="index.php" class="button"> Return to Collection</a>
+
 </body>
 </html>
