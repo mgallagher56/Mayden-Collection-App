@@ -89,10 +89,10 @@ p {
 
 h1 {
     color: white;
-    padding-left: 20px;
+    padding-right: 20px;
     text-align: center;
     margin: 0 auto;
-    float: left;
+    float: right;
     position: relative;
     top:50%;
     transform: translateY(-50%);
