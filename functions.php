@@ -7,7 +7,7 @@
  * @return PDO db connection
  */
 function connectDb(): PDO {
-    $db = new PDO("mysql:host=" . getenv('host') . "; dbname=" . getenv('dbname') . '"', getenv('dbuser'), getenv('dbpass'));
+    $db = new PDO('"mysql:host=' . getenv('host') . '; dbname=' . getenv('dbname') . '","' . getenv('dbuser') . '","' . getenv('dbuser') . '"');
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
     return $db;
 }
