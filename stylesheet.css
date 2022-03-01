@@ -8,7 +8,7 @@ body {
 
 .container {
     width: 90%;
-    overflow: auto;
+    overflow: hidden;
 }
 
 header {
