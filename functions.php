@@ -7,7 +7,7 @@
  * @return PDO db connection
  */
 function connectDb(): PDO {
-    $db = new PDO('"mysql:host=remotemysql.com:3306; dbname=dBNKXd2Q3o","dBNKXd2Q3o","kB9Qz9f9iv"');
+    $db = new PDO("mysql:host=remotemysql.com; dbname=dBNKXd2Q3o","dBNKXd2Q3o","kB9Qz9f9iv");
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
     return $db;
 }
@@ -34,7 +34,7 @@ function getDataFromDb(PDO $db): array {
  * @return string Outputs each row from db in a list with each data point as a list item
  */
 function outputDataAsRows(array $collectionData) :string {
-    if (count($collectionData[0]) == 5) {
+    if($collectionData) {
         $result = '';
         foreach ($collectionData as $name => $value) {
             $result .= '<ul class="dataList container">';
@@ -46,9 +46,10 @@ function outputDataAsRows(array $collectionData) :string {
             $result .= '</ul>';
         }
         return $result;
-    }else {
-        return 'invalid input';
+    } else {
+        return '<ul class="dataList container"><li class="data">No data found</li></ul>';
     }
+
 }
 
 /**

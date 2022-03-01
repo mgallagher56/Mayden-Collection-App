@@ -26,7 +26,7 @@ $results = outputDataAsRows($collectionData);
             <p>Enter Primary Colour: <input max="20" class="textBox" type="text" name="colour" placeholder="e.g. black" required></p>
             <p>Enter Year of Release: <input min="4" max="4" class="textBox" type="text" name="year" placeholder="e.g. 1999" required></p>
             <p>Enter Image url (.jpg/.png): <input class="textBox" type="url" name="image" placeholder="e.g. nike.com/shoe.jpg" required></p>
-            <input class="submit" type="submit">
+            <input class="submit" type="submit" value="Submit">
         </form>
     </div>
 
@@ -43,4 +43,3 @@ $results = outputDataAsRows($collectionData);
     </div>
 </body>
 </html>
-
