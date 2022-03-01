@@ -1,13 +1,12 @@
 <?php
-
-
 /**
  * Connects to mySQL database
  *
  * @return PDO db connection
  */
 function connectDb(): PDO {
-    $db = new PDO("mysql:host=remotemysql.com; dbname=dBNKXd2Q3o","dBNKXd2Q3o","kB9Qz9f9iv");
+
+    $db = new PDO("mysql:host=remotemysql.com; dbname=dBNKXd2Q3o", getenv('DBNAME') , getenv('DBPASS'));
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
     return $db;
 }
