@@ -7,7 +7,7 @@
  * @return PDO db connection
  */
 function connectDb(): PDO {
-    $db = new PDO('"mysql:host=remotemysql.com; dbname=dBNKXd2Q3o","dBNKXd2Q3o","kB9Qz9f9iv"');
+    $db = new PDO('"mysql:host=remotemysql.com:3306; dbname=dBNKXd2Q3o","dBNKXd2Q3o","kB9Qz9f9iv"');
     $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
     return $db;
 }
